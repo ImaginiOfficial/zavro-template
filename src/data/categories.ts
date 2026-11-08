@@ -56,3 +56,4 @@ export const categories: Category[] = [
     featured: false,
   },
 ];
+

@@ -75,3 +75,4 @@ export interface TemplateConfig {
   };
   sections: TemplateSection[];
 }
+

@@ -207,3 +207,4 @@ When a user clicks **Proceed to Checkout** in [`src/app/cart/page.tsx`](src/app/
 ## 📄 License
 
 Created by **Zavro**. Open for developers to customize and build custom ecommerce templates.
+

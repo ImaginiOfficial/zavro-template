@@ -426,3 +426,4 @@ export const products: Product[] = [
     care: ["Dry clean only", "Store folded flat with cedar balls"],
   },
 ];
+
