@@ -1,0 +1,353 @@
+{
+  "id": "aurora",
+  "name": "Aurora",
+  "version": "1.0.0",
+  "category": "Fashion & Apparel",
+  "description": "A luxury, minimalist fashion ecommerce template crafted for modern ready-to-wear, footwear, and designer accessory labels.",
+  "author": "Zavro Platform",
+  "preview": {
+    "thumbnail": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80",
+    "desktop": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&auto=format&fit=crop&q=80",
+    "mobile": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80"
+  },
+  "sections": [
+    {
+      "id": "announcement_bar",
+      "name": "Announcement Bar",
+      "order": 1,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "text",
+          "label": "Announcement Text",
+          "type": "text",
+          "default": "Complimentary worldwide express shipping on orders over $200 | Use code AURORA15 for 15% off"
+        },
+        {
+          "name": "link",
+          "label": "Announcement Link",
+          "type": "link",
+          "default": "/products"
+        }
+      ],
+      "defaultValues": {
+        "text": "Complimentary worldwide express shipping on orders over $200 | Use code AURORA15 for 15% off",
+        "link": "/products"
+      }
+    },
+    {
+      "id": "header",
+      "name": "Header & Navigation",
+      "order": 2,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "brandName",
+          "label": "Brand Name",
+          "type": "text",
+          "default": "AURORA"
+        },
+        {
+          "name": "logoUrl",
+          "label": "Logo Image URL",
+          "type": "image",
+          "default": "/images/logo.png"
+        },
+        {
+          "name": "tagline",
+          "label": "Header Tagline",
+          "type": "text",
+          "default": "Haute Couture & Ready-to-Wear"
+        }
+      ],
+      "defaultValues": {
+        "brandName": "AURORA",
+        "logoUrl": "/images/logo.png",
+        "tagline": "Haute Couture & Ready-to-Wear"
+      }
+    },
+    {
+      "id": "hero",
+      "name": "Hero Banner",
+      "order": 3,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "badge",
+          "label": "Sub-heading Badge",
+          "type": "text",
+          "default": "AUTUMN / WINTER 2026"
+        },
+        {
+          "name": "headline",
+          "label": "Main Headline",
+          "type": "text",
+          "default": "Timeless Elegance, Modern Silhouette"
+        },
+        {
+          "name": "description",
+          "label": "Description Paragraph",
+          "type": "textarea",
+          "default": "Discover structured tailoring, fluid silks, and sustainably sourced cashmere designed for effortless distinction."
+        },
+        {
+          "name": "primaryButtonText",
+          "label": "Primary Button Text",
+          "type": "text",
+          "default": "Explore Collection"
+        },
+        {
+          "name": "primaryButtonLink",
+          "label": "Primary Button Link",
+          "type": "link",
+          "default": "/products"
+        },
+        {
+          "name": "secondaryButtonText",
+          "label": "Secondary Button Text",
+          "type": "text",
+          "default": "Shop New Arrivals"
+        },
+        {
+          "name": "secondaryButtonLink",
+          "label": "Secondary Button Link",
+          "type": "link",
+          "default": "/products?filter=new"
+        },
+        {
+          "name": "backgroundImage",
+          "label": "Hero Background Image",
+          "type": "image",
+          "default": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&auto=format&fit=crop&q=85"
+        }
+      ],
+      "defaultValues": {
+        "badge": "AUTUMN / WINTER 2026",
+        "headline": "Timeless Elegance, Modern Silhouette",
+        "description": "Discover structured tailoring, fluid silks, and sustainably sourced cashmere designed for effortless distinction.",
+        "primaryButtonText": "Explore Collection",
+        "primaryButtonLink": "/products",
+        "secondaryButtonText": "Shop New Arrivals",
+        "secondaryButtonLink": "/products?filter=new",
+        "backgroundImage": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&auto=format&fit=crop&q=85"
+      }
+    },
+    {
+      "id": "categories",
+      "name": "Curated Categories",
+      "order": 4,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Section Heading",
+          "type": "text",
+          "default": "Curated Categories"
+        },
+        {
+          "name": "subheading",
+          "label": "Section Subheading",
+          "type": "text",
+          "default": "Select by wardrobe pillars and artisanal essentials"
+        }
+      ],
+      "defaultValues": {
+        "heading": "Curated Categories",
+        "subheading": "Select by wardrobe pillars and artisanal essentials"
+      }
+    },
+    {
+      "id": "featured_products",
+      "name": "Featured Products",
+      "order": 5,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Section Heading",
+          "type": "text",
+          "default": "Featured Editions"
+        },
+        {
+          "name": "subheading",
+          "label": "Section Subheading",
+          "type": "text",
+          "default": "Handpicked essentials redefining modern luxury dressing"
+        }
+      ],
+      "defaultValues": {
+        "heading": "Featured Editions",
+        "subheading": "Handpicked essentials redefining modern luxury dressing"
+      }
+    },
+    {
+      "id": "promo_banner",
+      "name": "Promotional Image Banner",
+      "order": 6,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "eyebrow",
+          "label": "Eyebrow Tag",
+          "type": "text",
+          "default": "THE CASHMERE CAPSULE"
+        },
+        {
+          "name": "title",
+          "label": "Banner Title",
+          "type": "text",
+          "default": "Pure Mongolian Cashmere, Tailored For Eternity"
+        },
+        {
+          "name": "description",
+          "label": "Banner Description",
+          "type": "textarea",
+          "default": "Every thread is spun from certified sustainable Mongolian fibers, offering an ultra-soft hand feel and enduring thermal insulation."
+        },
+        {
+          "name": "buttonText",
+          "label": "Button Text",
+          "type": "text",
+          "default": "Discover The Capsule"
+        },
+        {
+          "name": "buttonLink",
+          "label": "Button Link",
+          "type": "link",
+          "default": "/products?category=outerwear"
+        },
+        {
+          "name": "image",
+          "label": "Banner Image",
+          "type": "image",
+          "default": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&auto=format&fit=crop&q=85"
+        }
+      ],
+      "defaultValues": {
+        "eyebrow": "THE CASHMERE CAPSULE",
+        "title": "Pure Mongolian Cashmere, Tailored For Eternity",
+        "description": "Every thread is spun from certified sustainable Mongolian fibers, offering an ultra-soft hand feel and enduring thermal insulation.",
+        "buttonText": "Discover The Capsule",
+        "buttonLink": "/products?category=outerwear",
+        "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&auto=format&fit=crop&q=85"
+      }
+    },
+    {
+      "id": "new_arrivals",
+      "name": "New Arrivals",
+      "order": 7,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Section Heading",
+          "type": "text",
+          "default": "New Arrivals"
+        },
+        {
+          "name": "subheading",
+          "label": "Section Subheading",
+          "type": "text",
+          "default": "Fresh silhouettes arriving weekly from our European ateliers"
+        }
+      ],
+      "defaultValues": {
+        "heading": "New Arrivals",
+        "subheading": "Fresh silhouettes arriving weekly from our European ateliers"
+      }
+    },
+    {
+      "id": "bestsellers",
+      "name": "Best-Selling Products",
+      "order": 8,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Section Heading",
+          "type": "text",
+          "default": "Best Sellers"
+        },
+        {
+          "name": "subheading",
+          "label": "Section Subheading",
+          "type": "text",
+          "default": "Loved by discerning clients across the globe"
+        }
+      ],
+      "defaultValues": {
+        "heading": "Best Sellers",
+        "subheading": "Loved by discerning clients across the globe"
+      }
+    },
+    {
+      "id": "newsletter",
+      "name": "Newsletter Subscription",
+      "order": 9,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "heading",
+          "label": "Newsletter Title",
+          "type": "text",
+          "default": "Join The Aurora Atelier"
+        },
+        {
+          "name": "subheading",
+          "label": "Newsletter Description",
+          "type": "textarea",
+          "default": "Receive exclusive invitations to private seasonal sales, atelier previews, and enjoy 15% off your first order."
+        },
+        {
+          "name": "buttonText",
+          "label": "Subscribe Button Text",
+          "type": "text",
+          "default": "Subscribe"
+        }
+      ],
+      "defaultValues": {
+        "heading": "Join The Aurora Atelier",
+        "subheading": "Receive exclusive invitations to private seasonal sales, atelier previews, and enjoy 15% off your first order.",
+        "buttonText": "Subscribe"
+      }
+    },
+    {
+      "id": "footer",
+      "name": "Footer",
+      "order": 10,
+      "enabled": true,
+      "fields": [
+        {
+          "name": "brandDescription",
+          "label": "Brand Description",
+          "type": "textarea",
+          "default": "Aurora celebrates modern minimalism with an uncompromising devotion to master craftsmanship, enduring fabrics, and responsible luxury."
+        },
+        {
+          "name": "contactEmail",
+          "label": "Contact Email",
+          "type": "text",
+          "default": "concierge@aurorafashion.com"
+        },
+        {
+          "name": "contactPhone",
+          "label": "Contact Phone",
+          "type": "text",
+          "default": "+1 (800) 458-2971"
+        },
+        {
+          "name": "copyrightText",
+          "label": "Copyright Text",
+          "type": "text",
+          "default": "© 2026 AURORA. All rights reserved. Powered by Zavro."
+        }
+      ],
+      "defaultValues": {
+        "brandDescription": "Aurora celebrates modern minimalism with an uncompromising devotion to master craftsmanship, enduring fabrics, and responsible luxury.",
+        "contactEmail": "concierge@aurorafashion.com",
+        "contactPhone": "+1 (800) 458-2971",
+        "copyrightText": "© 2026 AURORA. All rights reserved. Powered by Zavro."
+      }
+    }
+  ]
+}

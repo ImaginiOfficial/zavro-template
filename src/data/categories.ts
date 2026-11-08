@@ -1,0 +1,58 @@
+import { Category } from "@/types";
+
+export const categories: Category[] = [
+  {
+    id: "women",
+    name: "Women's Collection",
+    slug: "women",
+    description: "Fluid silks, tailored suiting, and elevated minimalist essentials.",
+    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 42,
+    featured: true,
+  },
+  {
+    id: "men",
+    name: "Men's Tailoring",
+    slug: "men",
+    description: "Contemporary silhouettes cut from virgin wool, linen, and brushed cotton.",
+    image: "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 36,
+    featured: true,
+  },
+  {
+    id: "outerwear",
+    name: "Structured Outerwear",
+    slug: "outerwear",
+    description: "Trench coats, double-breasted wool overcoats, and insulating bombers.",
+    image: "https://images.unsplash.com/photo-1544441893-675973e31985?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 28,
+    featured: true,
+  },
+  {
+    id: "bags",
+    name: "Leather Goods",
+    slug: "bags",
+    description: "Artisanal Tuscan leather totes, structured shoulder bags, and cardholders.",
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 19,
+    featured: true,
+  },
+  {
+    id: "footwear",
+    name: "Minimalist Footwear",
+    slug: "footwear",
+    description: "Handmade Chelsea boots, sculptural mules, and refined leather loafers.",
+    image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 24,
+    featured: false,
+  },
+  {
+    id: "accessories",
+    name: "Fine Accessories",
+    slug: "accessories",
+    description: "Cashmere scarves, solid brass jewelry, and polarized acetate eyewear.",
+    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1000&auto=format&fit=crop&q=80",
+    itemCount: 31,
+    featured: false,
+  },
+];
