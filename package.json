@@ -1,8 +1,29 @@
 {
-  "name": "aurora-template",
+  "name": "@imaginiofficial/zavro-template-aurora",
   "version": "1.0.0",
-  "private": true,
-  "description": "Aurora - Standalone Zavro Ecommerce Template for modern fashion brands",
+  "description": "Aurora - Standalone luxury fashion ecommerce website template for Zavro",
+  "author": "Imagini <info@imagini.lk>",
+  "license": "MIT",
+  "main": "template.json",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImaginiOfficial/zavro-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ImaginiOfficial/zavro-template/issues"
+  },
+  "homepage": "https://github.com/ImaginiOfficial/zavro-template#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "files": [
+    "template.json",
+    "next.config.ts",
+    "postcss.config.mjs",
+    "tsconfig.json",
+    "public",
+    "src"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -23,6 +44,20 @@
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.5",
     "typescript": "^7.0.2"
-  }
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "zavro",
+    "zavro-template",
+    "aurora",
+    "ecommerce",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "fashion",
+    "luxury"
+  ]
 }
-

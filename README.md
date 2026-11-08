@@ -2,51 +2,118 @@
 
 ![Aurora Preview](https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&auto=format&fit=crop&q=80)
 
-**Aurora** is a complete, luxury fashion ecommerce website template built with Next.js, React, and Tailwind CSS. It is the official standalone reference template for the **Zavro** ecommerce platform.
+[![GitHub Package](https://img.shields.io/badge/GitHub%20Packages-@imaginiofficial/zavro--template--aurora-blue?logo=github)](https://github.com/ImaginiOfficial/zavro-template/packages)
+[![Version](https://img.shields.io/badge/version-1.0.0-green.svg)](package.json)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 
-Designed with an editorial luxury aesthetic inspired by European fashion ateliers, Aurora serves as the definitive reference project for future Zavro template developers.
-
----
-
-## 🌟 Key Features
-
-- **Announcement Bar:** Dismissible top banner with promotion announcements and international currency indicator.
-- **Header & Navigation:** Responsive navigation with brand identity, live search modal with instant product filtering, and shopping bag counter badge.
-- **Hero Banner:** Full-bleed editorial photography, luxury typography, primary and secondary call-to-actions, and trust value badges.
-- **Curated Category Grid:** Visual category cards with smooth hover zoom effects and piece counts.
-- **Featured Editions:** Highlighting signature atelier releases with color swatches, ratings, and Quick Add.
-- **Promotional Campaign Banner:** Split-screen editorial storytelling section for seasonal capsules.
-- **New Arrivals & Bestsellers:** Curated product grids with live badge indicators (`New`, `Bestseller`, `Sale`).
-- **Brand Ethos / Manifesto:** Editorial quote and sustainability value pillars.
-- **Newsletter Subscription:** Interactive client newsletter signup with immediate discount code activation.
-- **Footer:** Brand story, categorized navigation links, concierge contact details, social links, and security badges.
-- **Product Listing Page (`/products`):**
-  - Instant category filtering
-  - Price range slider
-  - Status filters (New Arrivals, Bestsellers, On Sale)
-  - Sorting (Price Low-to-High, High-to-Low, Highest Rated, Newest)
-  - Keyword search
-  - Active filter chips and reset functionality
-- **Product Details Page (`/product/[id]`):**
-  - High-resolution gallery with thumbnail switcher
-  - Color swatches with active selection
-  - Size selector with size guide modal trigger
-  - Quantity adjuster
-  - Add to Bag with real-time feedback & Instant Buy Now
-  - Tailoring details, composition, and shipping policy accordions
-  - Recommended ensemble product recommendations
-- **Shopping Bag Page (`/cart`):**
-  - Dynamic cart management powered by React Context and `localStorage` persistence
-  - Quantity increment/decrement and item removal
-  - Interactive coupon codes (e.g. `AURORA15` for 15% off, `WELCOME10` for 10% off)
-  - Dynamic shipping and tax calculations
-  - Checkout integration preview modal
+**Aurora** is a complete, luxury fashion ecommerce website template built with Next.js, React, and Tailwind CSS. It is packaged as a reusable, versioned npm package distributed via **GitHub Packages** for seamless consumption by the **Zavro** website generation workflow.
 
 ---
 
-## 📐 Zavro Compatibility & `template.json`
+## 📦 Package Identity
 
-Aurora includes a standardized `template.json` configuration file at the repository root. This metadata allows the Zavro platform and template managers to detect, preview, and configure the template:
+| Property | Value |
+| :--- | :--- |
+| **Package Name** | `@imaginiofficial/zavro-template-aurora` |
+| **Registry** | `https://npm.pkg.github.com` |
+| **Repository** | `https://github.com/ImaginiOfficial/zavro-template` |
+| **Current Version** | `1.0.0` |
+| **Template ID** | `aurora` |
+| **Category** | Fashion & Apparel |
+
+---
+
+## 🚀 Publishing to GitHub Packages
+
+### Prerequisites
+
+To publish this package to GitHub Packages, you need a GitHub Personal Access Token (PAT) with `write:packages` and `read:packages` permissions, or you can use the automated GitHub Actions workflow.
+
+### Option A: Local Terminal Publishing
+
+1. **Authenticate with GitHub Packages npm registry:**
+
+   ```bash
+   npm login --scope=@imaginiofficial --registry=https://npm.pkg.github.com
+   ```
+
+   When prompted:
+   - **Username:** Your GitHub username
+   - **Password:** Your GitHub Personal Access Token (PAT with `write:packages` scope)
+   - **Email:** Your GitHub public email
+
+2. **Verify local build:**
+
+   ```bash
+   npm run build
+   ```
+
+3. **Publish the package:**
+
+   ```bash
+   npm publish
+   ```
+
+> [!NOTE]
+> Alternatively, you can configure your user-level `~/.npmrc` (`%USERPROFILE%\.npmrc` on Windows) without checking in any secrets:
+> ```ini
+> @imaginiofficial:registry=https://npm.pkg.github.com
+> //npm.pkg.github.com/:_authToken=YOUR_GITHUB_PAT
+> ```
+
+---
+
+### Option B: Automated GitHub Actions Publishing (Recommended)
+
+This repository includes a pre-configured GitHub Actions workflow in [`.github/workflows/publish.yml`](.github/workflows/publish.yml).
+
+- **Via Release:** Creating and publishing a new release in the GitHub repository automatically publishes that version to GitHub Packages using the built-in `GITHUB_TOKEN`.
+- **Via Manual Trigger:** Navigate to **GitHub Repository > Actions > Publish to GitHub Packages > Run workflow**.
+
+---
+
+## 📥 Consuming the Template in Zavro or Other Projects
+
+### 1. Authenticate the Consuming Project
+
+In the project or builder service that will download the template, create a `.npmrc` file:
+
+```ini
+@imaginiofficial:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+### 2. Download or Extract the Template
+
+#### Approach 1: Add as a Dependency
+
+```bash
+npm install @imaginiofficial/zavro-template-aurora
+```
+
+#### Approach 2: Extract Full Source Code (for Zavro Site Builder Generation)
+
+To instantiate a fresh website instance from the package tarball:
+
+```bash
+# Download the package tarball
+npm pack @imaginiofficial/zavro-template-aurora
+
+# Extract the complete source code
+tar -xzf imaginiofficial-zavro-template-aurora-1.0.0.tgz --strip-components=1 -C ./my-new-store
+
+# Enter directory and install dependencies
+cd my-new-store
+npm install
+npm run dev
+```
+
+---
+
+## 📐 Template Metadata (`template.json`)
+
+Aurora includes a standardized [`template.json`](template.json) at the root of the package. This metadata allows the Zavro platform to inspect, preview, and inject store data into the template without altering its fixed design:
 
 ```json
 {
@@ -55,156 +122,119 @@ Aurora includes a standardized `template.json` configuration file at the reposit
   "version": "1.0.0",
   "category": "Fashion & Apparel",
   "description": "A luxury, minimalist fashion ecommerce template crafted for modern ready-to-wear, footwear, and designer accessory labels.",
-  "preview": {
-    "thumbnail": "...",
-    "desktop": "...",
-    "mobile": "..."
+  "package": {
+    "name": "@imaginiofficial/zavro-template-aurora",
+    "registry": "https://npm.pkg.github.com"
+  },
+  "framework": {
+    "name": "Next.js",
+    "version": "^16.4.5",
+    "router": "App Router",
+    "react": "^19.3.1",
+    "styling": "Tailwind CSS v4"
+  },
+  "runtime": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "compatibility": {
+    "zavroVersion": ">=1.0.0",
+    "fixedDesign": true,
+    "builderEditable": false
   },
   "sections": [
-    { "id": "announcement_bar", "name": "Announcement Bar", "order": 1, ... },
-    { "id": "header", "name": "Header & Navigation", "order": 2, ... },
-    { "id": "hero", "name": "Hero Banner", "order": 3, ... },
-    { "id": "categories", "name": "Curated Categories", "order": 4, ... },
-    { "id": "featured_products", "name": "Featured Products", "order": 5, ... },
-    { "id": "promo_banner", "name": "Promotional Image Banner", "order": 6, ... },
-    { "id": "new_arrivals", "name": "New Arrivals", "order": 7, ... },
-    { "id": "bestsellers", "name": "Best-Selling Products", "order": 8, ... },
-    { "id": "newsletter", "name": "Newsletter Subscription", "order": 9, ... },
-    { "id": "footer", "name": "Footer", "order": 10, ... }
+    { "id": "announcement_bar", "order": 1, "enabled": true, ... },
+    { "id": "header", "order": 2, "enabled": true, ... },
+    { "id": "hero", "order": 3, "enabled": true, ... },
+    { "id": "categories", "order": 4, "enabled": true, ... },
+    { "id": "featured_products", "order": 5, "enabled": true, ... },
+    { "id": "promo_banner", "order": 6, "enabled": true, ... },
+    { "id": "new_arrivals", "order": 7, "enabled": true, ... },
+    { "id": "bestsellers", "order": 8, "enabled": true, ... },
+    { "id": "newsletter", "order": 9, "enabled": true, ... },
+    { "id": "footer", "order": 10, "enabled": true, ... }
   ]
 }
 ```
 
-Each section defines:
-- Default text, labels, and image URLs
-- Editable field schemas (`text`, `textarea`, `image`, `link`, `number`, `boolean`)
-- Configurable display order
-
 ---
 
-## 📂 Project Structure
+## 📂 Package Contents
+
+When published, only required source files and public assets are packed. Build directories (`.next`), dependencies (`node_modules`), and git files are automatically excluded:
 
 ```text
-zavro-template/
-├── template.json                # Zavro template schema & section registry
-├── package.json                 # Dependencies and build scripts
-├── tsconfig.json                # TypeScript configuration with @/* path aliases
-├── next.config.ts               # Next.js configuration (remote image patterns)
+@imaginiofficial/zavro-template-aurora/
+├── template.json                # Template metadata & section field definitions
+├── package.json                 # Package manifests & dependencies
+├── tsconfig.json                # TypeScript configuration
+├── next.config.ts               # Next.js configuration
 ├── postcss.config.mjs           # Tailwind CSS PostCSS plugin config
-├── README.md                    # Setup and customization documentation
-├── public/
-│   ├── images/
-│   │   ├── logo.png             # Brand logo asset
-│   │   ├── hero.jpg             # Hero photography
-│   │   ├── banners/             # Promotional campaign banners
-│   │   │   └── promo-banner.jpg
-│   │   └── products/            # Sample product images
-│   │       ├── product-1.jpg
-│   │       ├── product-2.jpg
-│   │       └── product-3.jpg
-│   └── favicon.ico
+├── README.md                    # Documentation
+├── public/                      # Static assets (images, banners, icons)
+│   ├── favicon.ico
+│   └── images/
+│       ├── logo.png
+│       ├── hero.jpg
+│       ├── banners/
+│       └── products/
 └── src/
-    ├── app/
-    │   ├── layout.tsx           # Root layout with CartProvider & global navigation
-    │   ├── page.tsx             # Homepage assembling all sections
+    ├── app/                     # Next.js App Router (pages, layouts)
+    │   ├── layout.tsx
+    │   ├── page.tsx
     │   ├── products/
-    │   │   └── page.tsx         # Product listing & filter page
-    │   ├── product/
-    │   │   └── [id]/
-    │   │       └── page.tsx     # Dynamic product detail page
+    │   ├── product/[id]/
     │   └── cart/
-    │       └── page.tsx         # Shopping bag and order summary page
-    ├── components/
-    │   ├── AnnouncementBar.tsx  # Top announcement notification
-    │   ├── Header.tsx           # Brand header, search modal, and navigation
-    │   ├── Hero.tsx             # Hero banner with call-to-actions
-    │   ├── CategoryGrid.tsx     # Editorial category visual grid
-    │   ├── ProductCard.tsx      # Reusable product card with swatches & Quick Add
-    │   ├── ProductGrid.tsx      # Responsive product grid container
-    │   ├── PromotionalBanner.tsx# Campaign storytelling banner
-    │   ├── Newsletter.tsx       # Newsletter subscription form
-    │   └── Footer.tsx           # Multi-column footer with contact details
-    ├── context/
-    │   └── CartContext.tsx      # Cart state management (local storage & calculations)
-    ├── data/
-    │   ├── categories.ts        # Modular category sample data
-    │   └── products.ts          # Realistic dummy product catalogue
-    ├── styles/
-    │   └── globals.css          # Design system theme variables and Tailwind imports
-    └── types/
-        └── index.ts             # TypeScript interfaces for products, categories, cart
+    ├── components/              # Reusable React components
+    ├── context/                 # Cart context & state persistence
+    ├── data/                    # Modular sample products & categories
+    ├── styles/                  # Tailwind theme & global styling
+    └── types/                   # TypeScript interfaces
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🏷️ Version Management
 
-### Prerequisites
+Aurora follows [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`):
 
-- [Node.js](https://nodejs.org/) v18.0.0 or higher
-- `npm`, `pnpm`, or `yarn`
+- **Patch (`1.0.1`):** Bug fixes, visual adjustments, styling refinements.
+  ```bash
+  npm version patch
+  ```
+- **Minor (`1.1.0`):** New backward-compatible sections, components, or fields.
+  ```bash
+  npm version minor
+  ```
+- **Major (`2.0.0`):** Breaking structural changes, major framework upgrades.
+  ```bash
+  npm version major
+  ```
 
-### Installation
+> [!IMPORTANT]
+> Once a version is published to GitHub Packages, it cannot be overwritten. Always bump the version prior to publishing.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ImaginiOfficial/zavro-template.git
-   cd zavro-template
-   ```
+---
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-3. Launch the development server:
-   ```bash
-   npm run dev
-   ```
-
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to view Aurora.
-
-### Production Build
-
-To build the standalone application for production:
+## 💻 Local Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/ImaginiOfficial/zavro-template.git
+cd zavro-template
+
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
+
+# Build production bundle
 npm run build
-npm run start
 ```
-
----
-
-## 🎨 Customization Guide for Developers
-
-### 1. Replacing Products & Categories
-Dummy data is stored in isolated files for easy modification or API binding:
-- **Products:** [`src/data/products.ts`](src/data/products.ts) — Edit, add, or replace products with your store catalogue.
-- **Categories:** [`src/data/categories.ts`](src/data/categories.ts) — Configure shop categories and banner imagery.
-
-To connect a live Zavro API or headless ecommerce backend, simply replace the local imports in `src/app` pages with your API client.
-
-### 2. Design System & Theme Colors
-Tailwind CSS v4 theme variables are declared in [`src/styles/globals.css`](src/styles/globals.css):
-
-```css
-@theme {
-  --color-brand-primary: #121212;
-  --color-brand-secondary: #242424;
-  --color-brand-accent: #c5a880;
-  --color-brand-cream: #fbf9f5;
-  --color-brand-surface: #f7f6f2;
-}
-```
-
-Modify these hex values to instantly adjust the palette of the entire template.
-
-### 3. Connecting Checkout
-When a user clicks **Proceed to Checkout** in [`src/app/cart/page.tsx`](src/app/cart/page.tsx), `useCart()` provides the complete `cart`, `subtotal`, `shippingFee`, `promoDiscount`, and `total`. Replace the modal preview with your Zavro checkout redirect or payment gateway handler (Stripe, PayPal, etc.).
 
 ---
 
 ## 📄 License
 
-Created by **Zavro**. Open for developers to customize and build custom ecommerce templates.
-
+MIT © Imagini. Designed for the **Zavro** Ecommerce Platform.

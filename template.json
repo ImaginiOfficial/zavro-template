@@ -5,11 +5,42 @@
   "category": "Fashion & Apparel",
   "description": "A luxury, minimalist fashion ecommerce template crafted for modern ready-to-wear, footwear, and designer accessory labels.",
   "author": "Zavro Platform",
+  "package": {
+    "name": "@imaginiofficial/zavro-template-aurora",
+    "registry": "https://npm.pkg.github.com",
+    "repository": "https://github.com/ImaginiOfficial/zavro-template"
+  },
+  "framework": {
+    "name": "Next.js",
+    "version": "^16.4.5",
+    "router": "App Router",
+    "react": "^19.3.1",
+    "styling": "Tailwind CSS v4"
+  },
+  "runtime": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "compatibility": {
+    "zavroVersion": ">=1.0.0",
+    "fixedDesign": true,
+    "builderEditable": false,
+    "sourceDistribution": true
+  },
   "preview": {
     "thumbnail": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80",
     "desktop": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&auto=format&fit=crop&q=80",
     "mobile": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop&q=80"
   },
+  "requiredAssets": [
+    "public/favicon.ico",
+    "public/images/logo.png",
+    "public/images/hero.jpg",
+    "public/images/banners/promo-banner.jpg",
+    "public/images/products/product-1.jpg",
+    "public/images/products/product-2.jpg",
+    "public/images/products/product-3.jpg"
+  ],
   "sections": [
     {
       "id": "announcement_bar",
@@ -351,4 +382,3 @@
     }
   ]
 }
-
