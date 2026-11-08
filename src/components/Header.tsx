@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Search,
   ShoppingBag,
@@ -25,12 +25,21 @@ export default function Header({
   tagline = "Haute Couture & Ready-to-Wear",
 }: HeaderProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { totalItems } = useCart();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [currentUrl, setCurrentUrl] = useState("");
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  // Sync current URL path & search query
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setCurrentUrl(window.location.pathname + window.location.search);
+    }
+  }, [pathname]);
 
   // Scroll listener for sticky header background
   useEffect(() => {
@@ -69,7 +78,7 @@ export default function Header({
   };
 
   const navLinks = [
-    { label: "New Arrivals", href: "/products?filter=new", highlight: true },
+    { label: "New Arrivals", href: "/products?filter=new" },
     { label: "Women", href: "/products?category=women" },
     { label: "Men", href: "/products?category=men" },
     { label: "Outerwear", href: "/products?category=outerwear" },
@@ -87,7 +96,7 @@ export default function Header({
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-2 sm:gap-4">
           {/* Mobile menu trigger */}
           <div className="flex items-center lg:hidden">
             <button
@@ -107,36 +116,53 @@ export default function Header({
           </div>
 
           {/* Brand Logo */}
-          <div className="flex-1 lg:flex-none text-center lg:text-left">
+          <div className="shrink-0 flex-1 lg:flex-initial text-center lg:text-left mr-3 lg:mr-8 xl:mr-12">
             <Link href="/" className="inline-block group text-center lg:text-left">
-              <span className="font-serif text-2xl sm:text-3xl tracking-[0.25em] font-semibold text-neutral-900 block group-hover:text-neutral-700 transition-colors">
+              <span className="font-serif text-2xl sm:text-3xl tracking-[0.22em] xl:tracking-[0.25em] font-semibold text-neutral-900 block group-hover:text-neutral-700 transition-colors">
                 {brandName}
               </span>
-              <span className="hidden sm:block text-[9px] uppercase tracking-[0.35em] text-neutral-400 font-medium">
+              <span className="hidden sm:block text-[8.5px] xl:text-[9px] uppercase tracking-[0.28em] xl:tracking-[0.35em] text-neutral-400 font-medium whitespace-nowrap">
                 {tagline}
               </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className={`text-xs uppercase tracking-[0.18em] transition-all duration-200 py-1 border-b-2 ${
-                  link.highlight
-                    ? "font-semibold text-neutral-900 border-neutral-900 hover:border-[#C5A880]"
-                    : "font-medium text-neutral-600 border-transparent hover:text-neutral-900 hover:border-neutral-300"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+          <nav className="hidden lg:flex items-center justify-center gap-4 xl:gap-7 2xl:gap-8 flex-1">
+            {navLinks.map((link) => {
+              const isActive =
+                currentUrl === link.href ||
+                (link.href === "/products" && currentUrl === "/products");
+
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="group relative py-2 text-[11px] xl:text-xs uppercase tracking-[0.14em] xl:tracking-[0.18em] font-medium whitespace-nowrap transition-colors duration-200"
+                >
+                  <span
+                    className={
+                      isActive
+                        ? "text-neutral-950 font-semibold"
+                        : "text-neutral-600 group-hover:text-neutral-950"
+                    }
+                  >
+                    {link.label}
+                  </span>
+                  <span
+                    className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-neutral-950 transition-all duration-300 origin-left ${
+                      isActive
+                        ? "scale-x-100 opacity-100"
+                        : "scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-100"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Header Action Icons */}
-          <div className="flex items-center space-x-4 sm:space-x-5">
+          <div className="shrink-0 flex items-center space-x-3 sm:space-x-5 ml-2 lg:ml-4">
             {/* Desktop Search Toggle */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
